@@ -11,7 +11,7 @@ def list_all_files(rootdir):
             _files.extend(list_all_files(path))
         if os.path.isfile(path):
             _files.append(path)
-
+    _files = list(set(_files))
     return _files
 
 def list_all_dirs(rootdir):
@@ -20,7 +20,7 @@ def list_all_dirs(rootdir):
     for dir in result1:
         dir = os.path.split(dir)
         _dirs.append(dir[0])
-
+    _dirs = list(set(_dirs))
     return _dirs
 
 def file_out_put(result1,result2,rootdir):
